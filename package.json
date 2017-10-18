@@ -1,0 +1,19 @@
+{
+	"name": "timemod-dagal",
+	"version": "0.0.1",
+	"description": "A mod for Game Dev Tycoon which enables control over time",
+	"main": "index.js",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/dgalaktionov/TimeMod.git"
+	},
+	"author": "DaGal",
+	"license": "SEE LICENSE",
+	"bugs": {
+		"url": "https://github.com/dgalaktionov/TimeMod/issues"
+	},
+	"homepage": "https://github.com/dgalaktionov/TimeMod#readme",
+	"dependencies": {
+		"gdt-modAPI": "git://github.com/greenheartgames/gdt-modAPI.git"
+	}
+}
