@@ -42,6 +42,7 @@
 	}));
 	
 	var active = "";
+	var saved_speed = 1;
 
 	function deactivate() {
 		var current = document.getElementById(active);
@@ -61,19 +62,21 @@
 	}
 
 	function pause() {
-		console.log("pause");
+		saved_speed = GameManager._timeModifier || GameManager._oldTimeModifier;
+		GameManager._timeModifier = 0;
+		GameManager._oldTimeModifier = 0;
 	}
 
 	function slow() {
-		console.log("slow");
+		GameManager._timeModifier = saved_speed;
 	}
 
 	function play() {
-		console.log("play");
+		GameManager._timeModifier = saved_speed;
 	}
 
 	function fast() {
-		console.log("fast");
+		GameManager._timeModifier = saved_speed;
 	}
 
 	function change_speed() {
