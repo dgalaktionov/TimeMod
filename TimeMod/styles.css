@@ -1,0 +1,31 @@
+.timemod_container {
+	display: inline-block;
+	padding: 0;
+	position: absolute;
+	left: 30%;
+	bottom: 20px;
+}
+
+.timemod_control {
+	display: inline-block;
+	height: 100px;
+	width: 100px;
+	margin: 0;
+	text-align: center;
+}
+
+.timemod_button {
+	height: 100px;
+	-webkit-filter: grayscale(1) brightness(1.1);
+	filter: grayscale(1) brightness(1.1);
+}
+
+.timemod_button:hover {
+	filter: hue-rotate(200deg) saturate(50);
+	-webkit-filter: hue-rotate(200deg) saturate(50);
+}
+
+.timemod_button.active {
+	filter: hue-rotate(160deg) saturate(50);
+	-webkit-filter: hue-rotate(160deg) saturate(50);
+}
