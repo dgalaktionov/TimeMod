@@ -44,11 +44,14 @@
 	var PAUSE_SPEED = 0;
 	var SLOW_SPEED = 0.5;
 	var NORMAL_SPEED = 1;
-	var FAST_SPEED = 2;	
-	var active = "";
+	var FAST_SPEED = 2;
+	
+	var settings = {
+		active: "timemod_play"
+	};
 
 	function deactivate() {
-		var current = document.getElementById(active);
+		var current = document.getElementById(settings.active);
 		
 		if (current) {
 			current.classList.remove("active");
@@ -56,8 +59,8 @@
 	}
 
 	function activate(id) {
-		active = id;
-		var current = document.getElementById(active);
+		settings.active = id;
+		var current = document.getElementById(settings.active);
 		
 		if (current) {
 			current.classList.add("active");
@@ -82,7 +85,7 @@
 	}
 
 	function change_speed() {
-		if (active === this.id)
+		if (settings.active === this.id)
 			return;
 		
 		deactivate();
@@ -111,4 +114,21 @@
 	for (var i = 0; i < buttons.length; i++) {
 		buttons[i].onclick = change_speed;
 	}
+	
+	function persistSettings() {
+		if (GDT.getDataStore) {
+			var dataStore = GDT.getDataStore("TimeModDaGal");
+			deactivate();
+			
+			if (dataStore.data) {
+				settings.active = dataStore.data.active || "timemod_play";
+			}
+			
+			dataStore.data = settings
+			activate(settings.active);
+		}
+	}
+	
+	GDT.on(GDT.eventKeys.saves.loaded, persistSettings);
+	GDT.on(GDT.eventKeys.saves.newGame, persistSettings);
 })();
