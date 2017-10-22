@@ -1,7 +1,7 @@
 {
 	"id": "timemod-dagal",
 	"name": "TimeMod",
-	"version": "0.4.0",
+	"version": "0.8.0",
 	"description": "A mod for Game Dev Tycoon which enables control over time",
 	"main": "index.js",
 	"repository": {

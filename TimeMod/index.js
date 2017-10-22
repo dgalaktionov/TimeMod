@@ -41,8 +41,11 @@
 		class: "timemod_button"
 	}));
 	
+	var PAUSE_SPEED = 0;
+	var SLOW_SPEED = 0.5;
+	var NORMAL_SPEED = 1;
+	var FAST_SPEED = 2;	
 	var active = "";
-	var saved_speed = 1;
 
 	function deactivate() {
 		var current = document.getElementById(active);
@@ -62,21 +65,20 @@
 	}
 
 	function pause() {
-		saved_speed = GameManager._timeModifier || GameManager._oldTimeModifier;
-		GameManager._timeModifier = 0;
-		GameManager._oldTimeModifier = 0;
+		GameManager._timeModifier = PAUSE_SPEED;
+		GameManager._oldTimeModifier = PAUSE_SPEED;
 	}
 
 	function slow() {
-		GameManager._timeModifier = saved_speed;
+		GameManager._timeModifier = SLOW_SPEED;
 	}
 
 	function play() {
-		GameManager._timeModifier = saved_speed;
+		GameManager._timeModifier = NORMAL_SPEED;
 	}
 
 	function fast() {
-		GameManager._timeModifier = saved_speed;
+		GameManager._timeModifier = FAST_SPEED;
 	}
 
 	function change_speed() {
